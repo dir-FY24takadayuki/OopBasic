@@ -4,10 +4,11 @@ public class ObjectSample {
 
     public static void main(String[] args) {
         // インスタンスの作成
+        //Department型とEmployeePractice型のクラスからできた2つのオブジェクト
         var department = new Department("営業部", "xx", 1000000);
         var employee = new EmployeePractice("鈴木", department, "課長", 100);
                 
-                //インスタンス・メソッドの呼び出し
+                //オブジェクトだからメソッドが使える
                 employee.report();
                 employee.report(2);
                 employee.joinMeeting();
@@ -20,6 +21,7 @@ public class ObjectSample {
                 var engineer = new EmployeePractice("田中", devDepartment, "一般社員", 88);
                 
                 //インスタンスメソッドの呼び出し
+                //engineerというのは、EmployeePracticeのオブジェクトゆえ、メソッドを持ち合わせている。
                 engineer.report();
                 engineer.joinMeeting();
     }
