@@ -17,6 +17,8 @@ public class ObjectSample {
                 System.out.println("");
                 
                 //インスタンスの作成
+                //devDepartmentはDepartmentのオブジェクト
+                //engineerはEmployeePracticeのオブジェクト
                 var devDepartment = new Department("開発部", "yy", 0);
                 var engineer = new EmployeePractice("田中", devDepartment, "一般社員", 88);
                 
