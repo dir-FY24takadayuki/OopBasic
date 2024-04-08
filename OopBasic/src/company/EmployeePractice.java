@@ -1,8 +1,8 @@
 package company;
 
-public class EmployeePractice {
+public abstract class EmployeePractice implements Workable {
     protected final String name;
-    private final Department department;
+    protected final Department department;
     private final String position;
     private final int employeeId;
     
@@ -27,8 +27,10 @@ public class EmployeePractice {
     }
     
     //会議に参加するメソッド
-    public void joinMeeting() {
-        department.meeting();
-        System.out.println("→上記の会議に参加します。部署：" + department.getName() + "名前」：" + name);
+    public abstract void joinMeeting();
+    
+    //働くメソッドを実装
+    public void work() {
+        System.out.println("正社員として働きます。名前:" + name + slogan);
     }
 }

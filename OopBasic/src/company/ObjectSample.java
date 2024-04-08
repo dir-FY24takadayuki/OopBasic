@@ -5,13 +5,16 @@ public class ObjectSample {
     public static void main(String[] args) {
         // インスタンスの作成
         //Department型とEmployeePractice型のクラスからできた2つのオブジェクト
-        var department = new Department("営業部", "xx", 1000000);
-        var employee = new EmployeePractice("鈴木", department, "課長", 100);
-                
-                //オブジェクトだからメソッドが使える
-                employee.report();
-                employee.report(2);
-                employee.joinMeeting();
+        var salesDepartment = new Department("営業部", "xx", 1000000);
+        EmployeePractice sales = new Sales("鈴木", salesDepartment, "課長", 100);
+        
+        //インスタンスメソッドの呼び出し
+        sales.report();
+        sales.report(2);
+        sales.joinMeeting();
+        
+        //変更ここまで
+       
                 
                 //1行空ける
                 System.out.println("");
@@ -20,12 +23,35 @@ public class ObjectSample {
                 //devDepartmentはDepartmentのオブジェクト
                 //engineerはEmployeePracticeのオブジェクト
                 var devDepartment = new Department("開発部", "yy", 0);
-                var engineer = new EmployeePractice("田中", devDepartment, "一般社員", 88);
+                var engineer = new Engineer("田中", devDepartment, "一般社員", 88, "Java");//継承クラスのインスタンスを定義するときは、新たに加えたフィールドの因数の定義忘れに注意
                 
                 //インスタンスメソッドの呼び出し
                 //engineerというのは、EmployeePracticeのオブジェクトゆえ、メソッドを持ち合わせている。
                 engineer.report();
                 engineer.joinMeeting();
+                engineer.developSoftware();//追記
+                
+                //ポリモーフィズムの確認（親の型の変数に子供の値を代入）
+                EmployeePractice projectManager = new Engineer("佐藤", devDepartment, "PM", 99, "Java");
+                
+                //インスタンスの呼び出し
+               projectManager.report();
+               projectManager.joinMeeting();
+               if (projectManager instanceof Engineer) {
+                    //developSoftwareメソッドを呼び出す
+                    ((Engineer)projectManager).developSoftware();
+                }
+               
+               //追記
+               var parttimeWorker = new ParttimeWorker("太田", salesDepartment);
+               
+               //実装したメソッドの呼び出し
+               ((Workable)sales).work();
+               ((Workable)engineer).work();
+               ((Workable)projectManager).work();
+               ((Workable)parttimeWorker).work();
+               //追記ここまで
     }
+    
 
 }

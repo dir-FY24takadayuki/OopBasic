@@ -1,14 +1,14 @@
 package company;
 
-public class Emploee {
+public class Emploee implements Workable {
     //フィールド
-    String name;
-    String department;
-    String position;
-    int employeeId;
+    protected String name;
+    private Department department;
+    private String position;
+    private int employeeId;
     
     //コンストラクター
-    public void Employee(String name, String department, String position, int employeeId) {
+    public void Emploee(String name, Department department, String position, int employeeId) {
         this.name = name;
         this.department = department;
         this.position = position;
@@ -22,5 +22,10 @@ public class Emploee {
     //報告メソッド」（オーバーロード） reportという名前のメソッドは一つ上でも使った
     public void report() {
         report(1);
+    }
+    @Override
+    public void work() {
+        System.out.println("正社員として働きます。名前：" + name + slogan);
+        
     }
 }
